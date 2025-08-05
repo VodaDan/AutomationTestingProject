@@ -3,7 +3,7 @@ package org.example;
 import java.util.Random;
 import java.util.UUID;
 
-public class User {
+public class User extends InputGeneration{
 
     private String firstName;
     private String lastName;
@@ -24,16 +24,7 @@ public class User {
         this.password = generateRandomName();
     }
 
-    public static String generateRandomEmail() {
-        String user = "user" + UUID.randomUUID().toString().substring(0, 6);
-        String[] domains = {"example.com", "testmail.com", "email.com"};
-        String domain = domains[new Random().nextInt(domains.length)];
-        return user + "@" + domain;
-    }
 
-    public static String generateRandomName() {
-        return "user" + UUID.randomUUID().toString().substring(0, 4);
-    }
 
     public String getFirstName() {
         return firstName;

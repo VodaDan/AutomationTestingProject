@@ -13,7 +13,17 @@ public class Main {
         registerPage.fillLastName(testUser.getLastName());
         registerPage.fillEmail(testUser.getEmail());
         registerPage.fillPassword(testUser.getPassword());
-//        registerPage.submitRegistration();
+        registerPage.submitRegistration();
+
+        // Login test
+        LoginPage loginPage = new LoginPage(nav.getPage());
+        nav.logOutUser();
+        nav.navigateToLoginPage();
+
+        loginPage.fillEmail(testUser.getEmail());
+        loginPage.fillPassword(testUser.getPassword());
+
+
 
 
 

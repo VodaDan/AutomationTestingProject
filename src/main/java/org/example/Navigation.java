@@ -55,7 +55,18 @@ public class Navigation {
         this.navigateHomeQa2();
         this.page.locator("#header > div > div.skip-links > div > a > span.label").click();
         this.page.locator("#header-account > div > ul > li:nth-child(5) > a").click();
+    }
 
+    public void logOutUser(){
+        this.navigateHomeQa2();
+        this.page.locator("#header > div > div.skip-links > div > a > span.label").click();
+        this.page.locator("#header-account > div > ul > li.last > a").click();
+    }
+
+    public void navigateToLoginPage(){
+        this.navigateHomeQa2();
+        this.page.locator("#header > div > div.skip-links > div > a > span.label").click();
+        this.page.locator("#header-account > div > ul > li.last > a").click();
     }
 
 }

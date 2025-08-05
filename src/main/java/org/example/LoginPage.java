@@ -17,4 +17,8 @@ public class LoginPage {
     public void fillPassword(String password) {
         page.locator("#pass").fill(password);
     }
+
+    public void submitLogin(){
+        page.locator("#send2").click();
+    }
 }

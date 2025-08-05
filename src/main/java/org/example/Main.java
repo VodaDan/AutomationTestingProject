@@ -15,13 +15,14 @@ public class Main {
         registerPage.fillPassword(testUser.getPassword());
         registerPage.submitRegistration();
 
+        nav.logOutUser();
+
         // Login test
         LoginPage loginPage = new LoginPage(nav.getPage());
-        nav.logOutUser();
         nav.navigateToLoginPage();
-
         loginPage.fillEmail(testUser.getEmail());
         loginPage.fillPassword(testUser.getPassword());
+        loginPage.submitLogin();
 
 
 

@@ -69,4 +69,9 @@ public class Navigation {
         this.page.locator("#header-account > div > ul > li.last > a").click();
     }
 
+    public void navigateToCheckout(){
+        this.page.locator("body > div > div > div.main-container.col1-layout > div > div > div.cart.display-single-price > div.cart-totals-wrapper > div > ul > li > button").click();
+        this.page.locator("#onepage-guest-register-button").click();
+    }
+
 }

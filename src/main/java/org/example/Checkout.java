@@ -19,7 +19,35 @@ public class Checkout {
         this.page.locator("#swatch79 > span.swatch-label").click(); // M
         Locator qtyField = this.page.locator("#qty");
         qtyField.fill("2");
-        this.page.locator("#product_addtocart_form > div.product-shop > div.product-options-bottom > div.add-to-cart > div.add-to-cart-buttons > button"); // add to cart
+        this.page.locator("#product_addtocart_form > div.product-shop > div.product-options-bottom > div.add-to-cart > div.add-to-cart-buttons > button").click(); // add to cart
+    }
+
+    public void fillFirstName(String firstName) {
+        page.locator("#billing\\:firstname").fill(firstName);
+    }
+
+    public void fillEmail(String email) {
+        page.locator("#billing\\:email").fill(email);
+    }
+
+    public void fillAddress(String address) {
+        page.locator("#billing\\:street1").fill(address);
+    }
+
+    public void fillCity(String city) {
+        page.locator("#billing\\:city").fill(city);
+    }
+
+    public void fillZip(String zip) {
+        page.locator("#billing\\:postcode").fill(zip);
+    }
+
+    public void fillPhone(String phone){
+        page.locator("#billing\\:telephone").fill(phone);
+    }
+
+    public void fillLastName(String lastname) {
+        page.locator("#billing\\:lastname");
     }
 
 }

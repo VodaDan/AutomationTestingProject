@@ -47,7 +47,7 @@ public class Checkout {
     }
 
     public void fillLastName(String lastname) {
-        page.locator("#billing\\:lastname");
+        page.locator("#billing\\:lastname").fill(lastname);
     }
 
 }

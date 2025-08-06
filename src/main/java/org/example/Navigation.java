@@ -70,6 +70,7 @@ public class Navigation {
     }
 
     public void navigateToCheckout(){
+//        this.page.locator("#s_method_flatrate_flatrate").click();
         this.page.locator("body > div > div > div.main-container.col1-layout > div > div > div.cart.display-single-price > div.cart-totals-wrapper > div > ul > li > button").click();
         this.page.locator("#onepage-guest-register-button").click();
     }

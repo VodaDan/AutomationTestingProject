@@ -12,14 +12,14 @@ public class Checkout {
     }
 
     public void addProductToCart() {
-        this.page.locator("#nav > ol > li.level0.nav-2.parent > a").click(); // man menu
-        this.page.locator("#nav > ol > li.level0.nav-2.parent > ul > li.level1.nav-2-1.first > a").click(); // new arrivals
+        this.page.locator("li[class='level0 nav-2 parent']").click(); // man menu
+        this.page.locator("#nav .nav-primary li:nth-child(2) li:nth-child(2)").click(); // new arrivals
         this.page.locator("#product-collection-image-410").click(); // chelsee tee image
-        this.page.locator("#swatch27 > span.swatch-label > img").click(); // blue color
-        this.page.locator("#swatch79 > span.swatch-label").click(); // M
+        this.page.locator("li img[alt='Blue']").click(); // blue color
+        this.page.locator("li.option-m").click(); // M
         Locator qtyField = this.page.locator("#qty");
         qtyField.fill("2");
-        this.page.locator("#product_addtocart_form > div.product-shop > div.product-options-bottom > div.add-to-cart > div.add-to-cart-buttons > button").click(); // add to cart
+        this.page.locator("div.add-to-cart-buttons button[title='Add to Cart']").click(); // add to cart
     }
 
     public void fillFirstName(String firstName) {

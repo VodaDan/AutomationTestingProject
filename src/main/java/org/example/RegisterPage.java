@@ -1,6 +1,7 @@
 package org.example;
 
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 
 public class RegisterPage {
 
@@ -28,7 +29,9 @@ public class RegisterPage {
     }
 
     public void submitRegistration() {
-        page.locator("#form-validate > div.buttons-set > button > span > span").click();
+//       this.page.locator(".buttons-set button").click();
+        // OR - either way works
+       page.getByRole(AriaRole.BUTTON,new Page.GetByRoleOptions().setName("Register")).click();
     }
 
 }

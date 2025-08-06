@@ -53,26 +53,29 @@ public class Navigation {
 
     public void navigateToRegisterPage(){
         this.navigateHomeQa2();
-        this.page.locator("#header > div > div.skip-links > div > a > span.label").click();
-        this.page.locator("#header-account > div > ul > li:nth-child(5) > a").click();
+        this.page.locator("a[data-target-element='#header-account']").click();
+        this.page.locator("a[title='Register']").click();
+//        this.page.locator("#header-account > div > ul > li:nth-child(5) > a").click();
     }
 
     public void logOutUser(){
         this.navigateHomeQa2();
-        this.page.locator("#header > div > div.skip-links > div > a > span.label").click();
-        this.page.locator("#header-account > div > ul > li.last > a").click();
+        this.page.locator("a[data-target-element='#header-account']").click();
+        this.page.locator("a[title='Log Out']").click();
     }
 
     public void navigateToLoginPage(){
         this.navigateHomeQa2();
-        this.page.locator("#header > div > div.skip-links > div > a > span.label").click();
-        this.page.locator("#header-account > div > ul > li.last > a").click();
+        this.page.locator("a[data-target-element='#header-account']").click();
+        this.page.locator("a[title='Log In']").click();
     }
 
     public void navigateToCheckout(){
 //        this.page.locator("#s_method_flatrate_flatrate").click();
-        this.page.locator("body > div > div > div.main-container.col1-layout > div > div > div.cart.display-single-price > div.cart-totals-wrapper > div > ul > li > button").click();
+        this.page.locator("div.header-minicart>a").click();
+        this.page.locator("div.minicart-actions a[title='Checkout']").click();
         this.page.locator("#onepage-guest-register-button").click();
     }
+
 
 }

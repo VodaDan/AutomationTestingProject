@@ -1,7 +1,8 @@
-package org.example;
+package org.example.test;
 
 
-import com.microsoft.playwright.*;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 
 public class Checkout {
 
@@ -19,7 +20,7 @@ public class Checkout {
         this.page.locator("li.option-m").click(); // M
         Locator qtyField = this.page.locator("#qty");
         qtyField.fill("2");
-        this.page.locator("div.add-to-cart-buttons button[title='Add to Cart']").click(); // add to cart
+        this.page.locator("div.add-to-cart-buttons wbutton[title='Add to Cart']").click(); // add to cart
     }
 
     public void fillFirstName(String firstName) {

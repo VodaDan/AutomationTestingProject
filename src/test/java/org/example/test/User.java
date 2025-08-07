@@ -1,9 +1,6 @@
-package org.example;
+package org.example.test;
 
-import java.util.Random;
-import java.util.UUID;
-
-public class User extends InputGeneration{
+public class User extends InputGeneration {
 
     private String firstName;
     private String lastName;

@@ -1,6 +1,9 @@
-package org.example;
+package org.example.test;
 
-import com.microsoft.playwright.*;
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
 
 public class Navigation {
 
@@ -76,6 +79,8 @@ public class Navigation {
         this.page.locator("div.minicart-actions a[title='Checkout']").click();
         this.page.locator("#onepage-guest-register-button").click();
     }
+
+
 
 
 }

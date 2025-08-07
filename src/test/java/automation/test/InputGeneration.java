@@ -1,4 +1,4 @@
-package org.example.test;
+package automation.test;
 
 import java.util.Random;
 import java.util.UUID;

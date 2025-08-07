@@ -1,4 +1,4 @@
-package org.example.test;
+package automation.test;
 
 public class WishlistPage {
 }

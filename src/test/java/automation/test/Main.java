@@ -1,4 +1,4 @@
-package org.example.test;
+package automation.test;
 
 import org.junit.jupiter.api.AfterAll;
 

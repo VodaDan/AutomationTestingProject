@@ -1,7 +1,6 @@
-package org.example.test;
+package automation.test;
 
 import com.microsoft.playwright.Page;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.util.regex.*;

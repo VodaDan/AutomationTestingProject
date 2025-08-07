@@ -1,4 +1,4 @@
-package org.example.test;
+package automation.test;
 
 public class User extends InputGeneration {
 
@@ -20,8 +20,6 @@ public class User extends InputGeneration {
         this.email = generateRandomEmail();
         this.password = generateRandomName();
     }
-
-
 
     public String getFirstName() {
         return firstName;

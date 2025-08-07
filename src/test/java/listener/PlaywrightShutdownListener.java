@@ -1,6 +1,6 @@
 package listener;
 
-import org.example.test.Navigation;
+import automation.test.Navigation;
 import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.launcher.TestPlan;
 

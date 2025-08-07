@@ -1,13 +1,25 @@
 package org.example.test;
 
 import com.microsoft.playwright.Page;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public class LoginPage {
 
-    private Page page;
+    private static Page page;
+    private static Navigation nav;
 
-    public LoginPage(Page page) {
-        this.page = page;
+    @BeforeAll
+    public static void startSessions(){
+        Navigation navi = new Navigation(150, true); // slowMo , headless true
+        nav = navi;
+        page = nav.getPage();
+    }
+
+    @AfterAll
+    public static void closeSession(){
+        nav.navigateClose();
     }
 
     public void fillEmail(String email) {
@@ -20,5 +32,15 @@ public class LoginPage {
 
     public void submitLogin(){
         page.locator("#send2").click();
+    }
+
+    @Test
+    public void loginValidUserTest(){
+        User testUser = new User("Jon","Jon","Jon@email.com","user1234"); // Create a registered user
+
+        nav.navigateToLoginPage();
+        fillEmail(testUser.getEmail());
+        fillPassword(testUser.getPassword());
+        submitLogin();
     }
 }

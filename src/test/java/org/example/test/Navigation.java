@@ -18,6 +18,12 @@ public class Navigation {
         this.page = browser.newPage();
     }
 
+    public Navigation(int slowMoValue,boolean headless) {
+        this.playwright = Playwright.create();
+        this.browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(headless).setSlowMo(slowMoValue));
+        this.page = browser.newPage();
+    }
+
     public Page getPage() {
         return page;
     }

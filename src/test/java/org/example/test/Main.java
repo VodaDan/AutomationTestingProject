@@ -4,15 +4,9 @@ public class Main {
     public static void main(String[] args) {
 
 
-//
-//        nav.logOutUser();
-//
-//        // Login test
-//        LoginPage loginPage = new LoginPage(nav.getPage());
-//        nav.navigateToLoginPage();
-//        loginPage.fillEmail(testUser.getEmail());
-//        loginPage.fillPassword(testUser.getPassword());
-//        loginPage.submitLogin();
+
+
+
 //
 //        // Add to wishlist
 

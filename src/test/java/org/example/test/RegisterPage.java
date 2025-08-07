@@ -18,14 +18,9 @@ public class RegisterPage {
     private static Page page;
     private static Navigation nav;
 
-    public RegisterPage() {
-
-    }
-
     @BeforeAll
     public static void startSessions(){
-        System.out.println("Running @BeforeAll");
-        Navigation navi = new Navigation(150);
+        Navigation navi = new Navigation(150, true); // slowMo , headless true
         nav = navi;
         page = nav.getPage();
     }
@@ -34,7 +29,6 @@ public class RegisterPage {
     public static void closeSession(){
         nav.navigateClose();
     }
-
 
     public void fillFirstName(String firstName) {
         page.locator("#firstname").fill(firstName);
@@ -77,7 +71,7 @@ public class RegisterPage {
     public void RegisterInvalidUserTest() {
         nav.navigateToRegisterPage();
         submitRegistration();
-        assertThat(nav.getPage()).hasURL("http://qa2magento.dev.evozon.com/customer/account/create/");
+        assertThat(nav.getPage()).hasTitle("Create New Customer Account");
     }
 
     @Test
@@ -91,7 +85,9 @@ public class RegisterPage {
         fillPassword(testUser.getPassword());
         submitRegistration();
 
-        assertThat(nav.getPage()).hasTitle("Create New Customer Account");
+        assertThat(nav.getPage()).hasTitle("My Account");
+        nav.logOutUser();
+        assertThat(nav.getPage()).hasTitle("Madison Island");
     }
 
 }

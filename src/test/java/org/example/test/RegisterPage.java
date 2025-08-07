@@ -40,11 +40,6 @@ public class RegisterPage {
         middleNameSelector ="#middlename";
 
     }
-//
-//    @AfterAll
-//    public static void closeSession() {
-//        nav.navigateClose();
-//    }
 
     public void fillFirstName(String firstName) {
         page.locator(firstNameSelector).fill(firstName);

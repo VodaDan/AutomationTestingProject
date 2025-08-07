@@ -24,11 +24,6 @@ public class Checkout {
         page = nav.getPage();
     }
 
-//    @AfterAll
-//    public static void closeSession() {
-//        nav.navigateClose();
-//    }
-
     public void addProductToCart() {
         page.locator("li[class='level0 nav-2 parent']").hover(); // man menu
         page.locator("#nav .nav-primary li:nth-child(2) li:nth-child(2)").click(); // new arrivals

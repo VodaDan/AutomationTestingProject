@@ -29,10 +29,6 @@ public class LoginPage {
 
     }
 
-//    @AfterAll
-//    public static void closeSession() {
-//        nav.navigateClose();
-//    }
 
     public void fillEmail(String email) {
         page.locator(emailSelector).fill(email);

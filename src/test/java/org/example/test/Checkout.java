@@ -3,6 +3,7 @@ package org.example.test;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import org.junit.jupiter.api.Test;
 
 public class Checkout {
 
@@ -49,6 +50,11 @@ public class Checkout {
 
     public void fillLastName(String lastname) {
         page.locator("#billing\\:lastname").fill(lastname);
+    }
+
+    @Test
+    public void addProductToCartTest(){
+        addProductToCart();
     }
 
 }

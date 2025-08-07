@@ -19,14 +19,14 @@ public class RegisterPage {
     private static Navigation nav;
 
     @BeforeAll
-    public static void startSessions(){
+    public static void startSessions() {
         Navigation navi = new Navigation(150, true); // slowMo , headless true
         nav = navi;
         page = nav.getPage();
     }
 
     @AfterAll
-    public static void closeSession(){
+    public static void closeSession() {
         nav.navigateClose();
     }
 
@@ -88,6 +88,11 @@ public class RegisterPage {
         assertThat(nav.getPage()).hasTitle("My Account");
         nav.logOutUser();
         assertThat(nav.getPage()).hasTitle("Madison Island");
+    }
+
+    @Test
+    public void registerInvalidEmailTest(){
+        User testUser = new User("Jon","Jon","Jon","user1234");
     }
 
 }

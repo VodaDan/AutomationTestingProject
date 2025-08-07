@@ -13,11 +13,20 @@ public class LoginPage {
     private static Page page;
     private static Navigation nav;
 
+    private static String emailSelector;
+    private static String passwordSelector;
+    private static String loginButtonSelector;
+
     @BeforeAll
     public static void startSessions() {
         Navigation navi = new Navigation(150, false); // slowMo , headless true
         nav = navi;
         page = nav.getPage();
+
+        emailSelector = "#email";
+        passwordSelector = "#pass";
+        loginButtonSelector = "#send2";
+
     }
 
     @AfterAll
@@ -26,15 +35,15 @@ public class LoginPage {
     }
 
     public void fillEmail(String email) {
-        page.locator("#email").fill(email);
+        page.locator(emailSelector).fill(email);
     }
 
     public void fillPassword(String password) {
-        page.locator("#pass").fill(password);
+        page.locator(passwordSelector).fill(password);
     }
 
     public void submitLogin(){
-        page.locator("#send2").click();
+        page.locator(loginButtonSelector).click();
     }
 
     @Test

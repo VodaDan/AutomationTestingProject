@@ -5,19 +5,34 @@ import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.options.AriaRole;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
+
+
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.*;
 
 
 public class RegisterPage {
 
-    private Page page;
-    private Navigation nav;
+    private static Page page;
+    private static Navigation nav;
 
     public RegisterPage() {
-        Navigation nav = new Navigation(150);
-        this.nav = nav;
-        this.page = nav.getPage();
+
+    }
+
+    @BeforeAll
+    public static void startSessions(){
+        System.out.println("Running @BeforeAll");
+        Navigation navi = new Navigation(150);
+        nav = navi;
+        page = nav.getPage();
+    }
+
+    @AfterAll
+    public static void closeSession(){
+        nav.navigateClose();
     }
 
 
@@ -45,8 +60,8 @@ public class RegisterPage {
     }
 
     @Test
-    public void registerUserTest() {
-        User testUser = new User("Jon","Jon","Jon@email.com","user1234"); // Create a random user
+    public void registerAlreadyRegisteredUserTest() {
+        User testUser = new User("Jon","Jon","Jon@email.com","user1234"); // Create a registered user
 
         nav.navigateToRegisterPage();
         fillFirstName(testUser.getFirstName());
@@ -54,7 +69,29 @@ public class RegisterPage {
         fillEmail(testUser.getEmail());
         fillPassword(testUser.getPassword());
         submitRegistration();
-        nav.navigateClose();
+
+        assertThat(nav.getPage()).hasTitle("Create New Customer Account");
+    }
+
+    @Test
+    public void RegisterInvalidUserTest() {
+        nav.navigateToRegisterPage();
+        submitRegistration();
+        assertThat(nav.getPage()).hasURL("http://qa2magento.dev.evozon.com/customer/account/create/");
+    }
+
+    @Test
+    public void registerValidUserTest() {
+        User testUser = new User(); // Create a random user
+
+        nav.navigateToRegisterPage();
+        fillFirstName(testUser.getFirstName());
+        fillLastName(testUser.getLastName());
+        fillEmail(testUser.getEmail());
+        fillPassword(testUser.getPassword());
+        submitRegistration();
+
+        assertThat(nav.getPage()).hasTitle("Create New Customer Account");
     }
 
 }

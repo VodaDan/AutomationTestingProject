@@ -19,15 +19,15 @@ public class Checkout {
 
     @BeforeAll
     public static void startSessions() {
-        Navigation navi = new Navigation(150, true); // slowMo , headless true
+        Navigation navi = Navigation.getInstance(150,false); // slowMo , headless true
         nav = navi;
         page = nav.getPage();
     }
 
-    @AfterAll
-    public static void closeSession() {
-        nav.navigateClose();
-    }
+//    @AfterAll
+//    public static void closeSession() {
+//        nav.navigateClose();
+//    }
 
     public void addProductToCart() {
         page.locator("li[class='level0 nav-2 parent']").hover(); // man menu

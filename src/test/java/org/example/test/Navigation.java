@@ -6,7 +6,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
 public class Navigation {
-
+    private static Navigation instance;
     private String env="qa2";
     private Playwright playwright;
     private Browser browser;
@@ -18,10 +18,25 @@ public class Navigation {
         this.page = browser.newPage();
     }
 
-    public Navigation(int slowMoValue,boolean headless) {
+    private Navigation(int slowMoValue, boolean headless) {
         this.playwright = Playwright.create();
-        this.browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(headless).setSlowMo(slowMoValue));
+        this.browser = playwright.chromium().launch(
+                new BrowserType.LaunchOptions()
+                        .setHeadless(headless)
+                        .setSlowMo(slowMoValue)
+        );
         this.page = browser.newPage();
+    }
+
+    public static Navigation getInstance(int slowMoValue, boolean headless) {
+        if (instance == null) {
+            instance = new Navigation(slowMoValue, headless);
+        }
+        return instance;
+    }
+
+    public static Navigation getInstance(int slowMoValue) {
+        return getInstance(slowMoValue, false);
     }
 
     public Page getPage() {
@@ -54,10 +69,14 @@ public class Navigation {
         this.page.navigate("http://"+this.env+"magento.dev.evozon.com/chelsea-tee-737.html");
     }
 
-    public void navigateClose(){
-        this.page.close();
-        this.browser.close();
-        this.playwright.close();
+    public static Navigation getInstanceIfInitialized() {
+        return instance;
+    }
+
+    public void navigateClose() {
+        browser.close();
+        playwright.close();
+        instance = null; // Optional: allow re-initialization later
     }
 
     public void navigateToRegisterPage(){

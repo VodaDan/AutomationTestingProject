@@ -1,5 +1,7 @@
 package org.example.test;
 
+import org.junit.jupiter.api.AfterAll;
+
 public class Main {
     public static void main(String[] args) {
 

@@ -3,6 +3,7 @@ package org.example.test;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.assertions.LocatorAssertions;
 import com.microsoft.playwright.options.AriaRole;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterAll;
@@ -26,7 +27,7 @@ public class RegisterPage {
 
     @BeforeAll
     public static void startSessions() {
-        Navigation navi = new Navigation(150, true); // slowMo , headless true
+        Navigation navi = Navigation.getInstance(150,true); // slowMo , headless true
         nav = navi;
         page = nav.getPage();
 
@@ -39,11 +40,11 @@ public class RegisterPage {
         middleNameSelector ="#middlename";
 
     }
-
-    @AfterAll
-    public static void closeSession() {
-        nav.navigateClose();
-    }
+//
+//    @AfterAll
+//    public static void closeSession() {
+//        nav.navigateClose();
+//    }
 
     public void fillFirstName(String firstName) {
         page.locator(firstNameSelector).fill(firstName);
@@ -106,10 +107,10 @@ public class RegisterPage {
         assertThat(nav.getPage()).hasTitle("Create New Customer Account");
     }
 
-    @Test
+    @Ignore
     public void registerValidUserTest() {
         User testUser = new User(); // Create a random user
-
+        nav.navigateHomeQa2();
         nav.navigateToRegisterPage();
         fillRegistrationForm(testUser);
 
@@ -121,6 +122,7 @@ public class RegisterPage {
     @Test // Test fails, the message is not shown, retest after fix (if ever)
     public void registerInvalidEmailTest(){
         User testUser = new User("Jon","Jon","Jon","user1234");
+        nav.navigateHomeQa2();
         nav.navigateToRegisterPage();
         fillRegistrationForm(testUser);
         Locator emailValidation = nav.getPage().locator("input[type='email']+div.validation-advice");

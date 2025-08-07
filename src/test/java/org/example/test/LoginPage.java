@@ -19,7 +19,7 @@ public class LoginPage {
 
     @BeforeAll
     public static void startSessions() {
-        Navigation navi = new Navigation(150, false); // slowMo , headless true
+        Navigation navi = Navigation.getInstance(0,true); // slowMo , headless true
         nav = navi;
         page = nav.getPage();
 
@@ -29,10 +29,10 @@ public class LoginPage {
 
     }
 
-    @AfterAll
-    public static void closeSession() {
-        nav.navigateClose();
-    }
+//    @AfterAll
+//    public static void closeSession() {
+//        nav.navigateClose();
+//    }
 
     public void fillEmail(String email) {
         page.locator(emailSelector).fill(email);

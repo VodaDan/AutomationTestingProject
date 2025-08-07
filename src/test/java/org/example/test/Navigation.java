@@ -67,6 +67,10 @@ public class Navigation {
 //        this.page.locator("#header-account > div > ul > li:nth-child(5) > a").click();
     }
 
+    public void navigateToShoppingCart() {
+        this.page.navigate("http://qa2magento.dev.evozon.com/checkout/cart/");
+    }
+
     public void logOutUser(){
         this.navigateHomeQa2();
         this.page.locator("a[data-target-element='#header-account']").click();

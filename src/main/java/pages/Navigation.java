@@ -1,4 +1,4 @@
-package automation.test;
+package pages;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
@@ -53,6 +53,14 @@ public class Navigation {
 
     public void setBrowser(Browser browser) {
         this.browser = browser;
+    }
+
+    public Playwright getPlaywright() {
+        return playwright;
+    }
+
+    public void setPlaywright(Playwright playwright) {
+        this.playwright = playwright;
     }
 
     public void navigateHomeQa2(){

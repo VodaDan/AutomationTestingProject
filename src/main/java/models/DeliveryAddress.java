@@ -1,4 +1,4 @@
-package automation.test;
+package models;
 
 public class DeliveryAddress extends InputGeneration {
 

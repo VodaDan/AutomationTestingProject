@@ -4,7 +4,6 @@ import models.User;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.assertions.LocatorAssertions;
 import com.microsoft.playwright.options.AriaRole;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -13,28 +12,15 @@ import pages.RegisterPage;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 
-public class RegisterTest {
+public class RegisterTest extends BaseTest {
 
-    private static Playwright playwright;
-    private static Browser browser;
-    private Page page;
     private RegisterPage registerPage;
-    private Navigation nav;
 
+    @Override
     @BeforeEach
     public void startSession () {
-        Navigation nav = new Navigation(0);
-        this.playwright = nav.getPlaywright();
-        this.browser = nav.getBrowser();
-        this.page = nav.getPage();
+        super.startSession();
         registerPage = new RegisterPage(page);
-        this.nav = nav;
-    }
-
-    @AfterEach
-    public void tearDown() {
-        browser.close();
-        playwright.close();
     }
 
     @Test

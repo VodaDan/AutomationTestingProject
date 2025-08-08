@@ -2,40 +2,23 @@ package tests;
 
 import com.microsoft.playwright.*;
 import models.DeliveryAddress;
-import org.junit.Ignore;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.Navigation;
 import pages.OrderPage;
-import pages.RegisterPage;
 
 import java.util.regex.Pattern;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class OrderTest {
+public class OrderTest extends BaseTest {
 
-    private static Playwright playwright;
-    private static Browser browser;
-    private Page page;
     private OrderPage orderPage;
-    private Navigation nav;
 
+    @Override
     @BeforeEach
     public void startSession () {
-        Navigation nav = new Navigation(0);
-        this.nav = nav;
-        this.playwright = nav.getPlaywright();
-        this.browser = nav.getBrowser();
-        this.page = nav.getPage();
+        super.startSession();
         orderPage = new OrderPage(page);
-    }
-
-    @AfterEach
-    public void tearDown() {
-        browser.close();
-        playwright.close();
     }
 
     @Test

@@ -1,8 +1,5 @@
 package tests;
-import pages.Navigation;
 import models.User;
-import com.microsoft.playwright.*;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
@@ -11,27 +8,15 @@ import java.util.regex.Pattern;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class LoginTest {
-    private static Playwright playwright;
-    private static Browser browser;
-    private Page page;
-    private LoginPage loginPage;
-    private Navigation nav;
+public class LoginTest extends BaseTest {
 
+    private LoginPage loginPage;
+
+    @Override
     @BeforeEach
     public void startSession () {
-        Navigation nav = new Navigation(0);
-        this.playwright = nav.getPlaywright();
-        this.browser = nav.getBrowser();
-        this.page = nav.getPage();
+        super.startSession();
         loginPage = new LoginPage(page);
-        this.nav = nav;
-    }
-
-    @AfterEach
-    public void tearDown() {
-        browser.close();
-        playwright.close();
     }
 
     @Test

@@ -18,7 +18,7 @@ public class Navigation {
         this.page = browser.newPage();
     }
 
-    private Navigation(int slowMoValue, boolean headless) {
+    public Navigation(int slowMoValue, boolean headless) {
         this.playwright = Playwright.create();
         this.browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()

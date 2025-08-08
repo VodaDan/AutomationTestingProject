@@ -5,7 +5,6 @@ import com.microsoft.playwright.Page;
 
 public class OrderPage {
     private Page page;
-    private Navigation nav;
     private String firstNameSelector;
     private String lastNameSelector;
     private String emailSelector;
@@ -25,7 +24,6 @@ public class OrderPage {
         citySelector="#billing\\:city";
         phoneSelector="#billing\\:telephone";
         regionSelector="#billing\\:region_id";
-        page = pageSent;
     }
 
     public void addProductToCart() {

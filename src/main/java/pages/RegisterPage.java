@@ -10,7 +10,6 @@ import com.microsoft.playwright.options.AriaRole;
 public class RegisterPage {
 
     private Page page;
-    private Navigation nav;
     private String firstNameSelector;
     private String lastNameSelector;
     private String emailSelector;
@@ -19,10 +18,7 @@ public class RegisterPage {
     private String confirmationPasswordSelector;
     private String middleNameSelector;
 
-
-
     public RegisterPage(Page pageSent) {
-
         page = pageSent;
         firstNameSelector = "#firstname";
         lastNameSelector = "#lastname";
@@ -31,7 +27,6 @@ public class RegisterPage {
         confirmationPasswordSelector = "#confirmation";
         registerButtonSelector = "#";
         middleNameSelector ="#middlename";
-
     }
 
     public void fillFirstName(String firstName) {

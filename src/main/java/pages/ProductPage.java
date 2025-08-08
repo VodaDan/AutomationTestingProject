@@ -5,16 +5,18 @@ import com.microsoft.playwright.Page;
 public class ProductPage {
 
     private Page page;
-    private String addToWishlistSelector;
+    private String wishlistAddLinkSelector;
 
     public ProductPage (Page pageSent) {
         page = pageSent;
-        addToWishlistSelector = "a.link-wishlist";
+        wishlistAddLinkSelector = "a.link-wishlist";
     }
 
-    public void addToWishList() {
-        page.locator(addToWishlistSelector).click();
+    public void addToWishlist() {
+        page.locator(wishlistAddLinkSelector).click();
     }
+
+
 
 
 }

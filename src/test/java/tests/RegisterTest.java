@@ -26,12 +26,12 @@ public class RegisterTest extends BaseTest {
     @Test
     public void registerVerifyInputFieldAndButtonTest(){
         nav.navigateToRegisterPage();
-        assertThat(nav.getPage().locator(registerPage.getFirstNameSelector())).isEditable();
-        assertThat(nav.getPage().locator(registerPage.getLastNameSelector())).isEditable();
-        assertThat(nav.getPage().locator(registerPage.getEmailSelector())).isEditable();
-        assertThat(nav.getPage().locator(registerPage.getPasswordSelector())).isEditable();
-        assertThat(nav.getPage().locator(registerPage.getConfirmationPasswordSelector())).isEditable();
-        assertThat(nav.getPage().locator(registerPage.getMiddleNameSelector())).isEditable();
+        assertThat(page.locator(registerPage.getFirstNameSelector())).isEditable();
+        assertThat(page.locator(registerPage.getLastNameSelector())).isEditable();
+        assertThat(page.locator(registerPage.getEmailSelector())).isEditable();
+        assertThat(page.locator(registerPage.getPasswordSelector())).isEditable();
+        assertThat(page.locator(registerPage.getConfirmationPasswordSelector())).isEditable();
+        assertThat(page.locator(registerPage.getMiddleNameSelector())).isEditable();
         assertThat(page.getByRole(AriaRole.BUTTON,new Page.GetByRoleOptions().setName("Register"))).isVisible();
         assertThat(page.getByRole(AriaRole.BUTTON,new Page.GetByRoleOptions().setName("Register"))).isEnabled();
 
@@ -44,14 +44,14 @@ public class RegisterTest extends BaseTest {
         nav.navigateToRegisterPage();
         registerPage.fillRegistrationForm(testUser);
 
-        assertThat(nav.getPage()).hasTitle("Create New Customer Account");
+        assertThat(page).hasTitle("Create New Customer Account");
     }
 
     @Test
     public void RegisterInvalidUserTest() {
         nav.navigateToRegisterPage();
         registerPage.submitRegistration();
-        assertThat(nav.getPage()).hasTitle("Create New Customer Account");
+        assertThat(page).hasTitle("Create New Customer Account");
     }
 
 
@@ -63,11 +63,11 @@ public class RegisterTest extends BaseTest {
         registerPage.fillRegistrationForm(testUser);
 
         // Check page title to confirm registration
-        assertThat(nav.getPage()).hasTitle("My Account");
+        assertThat(page).hasTitle("My Account");
         nav.logOutUser();
 
         // Check logout went successfully
-        assertThat(nav.getPage()).hasTitle("Madison Island");
+        assertThat(page).hasTitle("Madison Island");
 
     }
     @Disabled("Fails due to bug #1234 - registration form doesn't show asterisk and the mandatory field is not appearing")
@@ -77,7 +77,7 @@ public class RegisterTest extends BaseTest {
         nav.navigateHomeQa2();
         nav.navigateToRegisterPage();
         registerPage.fillRegistrationForm(testUser);
-        Locator emailValidation = nav.getPage().locator("input[type='email']+div.validation-advice");
+        Locator emailValidation = page.locator("input[type='email']+div.validation-advice");
         assertThat(emailValidation).isVisible(new LocatorAssertions.IsVisibleOptions().setTimeout(1500));
     }
 }

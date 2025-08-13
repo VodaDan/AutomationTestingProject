@@ -1,16 +1,11 @@
 package tests;
-
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.Page;
 import models.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.MethodSource;
 import pages.LoginPage;
-import pages.Navigation;
 
 import java.util.regex.Pattern;
 
@@ -44,7 +39,7 @@ public class LoginTest extends BaseTest {
     public void loginInvalidUserTest() {
         nav.navigateToLoginPage();
         loginPage.submitLogin();
-        assertThat(nav.getPage()).hasTitle("Customer Login");
+        assertThat(page).hasTitle("Customer Login");
     }
 
     @Test

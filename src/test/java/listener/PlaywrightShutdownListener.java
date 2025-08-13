@@ -9,9 +9,9 @@ public class PlaywrightShutdownListener implements TestExecutionListener {
     @Override
     public void testPlanExecutionFinished(TestPlan testPlan) {
         System.out.println("All tests finished — closing Navigation...");
-        Navigation instance = Navigation.getInstanceIfInitialized();
-        if (instance != null) {
-            instance.navigateClose();
-        }
+//        Navigation instance = Navigation.getInstanceIfInitialized();
+//        if (instance != null) {
+//            instance.navigateClose();
+//        }
     }
 }

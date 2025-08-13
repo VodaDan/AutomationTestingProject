@@ -53,9 +53,9 @@ public class OrderTest extends BaseTest {
         orderPage.fillAddress(randomAddress.getAddress());
         orderPage.fillPhone(randomAddress.getPhone());
         orderPage.fillLastName(randomAddress.getFirstName());
-        nav.getPage().locator(orderPage.getRegionSelector()).selectOption("Alaska");
+        page.locator(orderPage.getRegionSelector()).selectOption("Alaska");
         page.locator("label[for='billing:use_for_shipping_no']").click();
-        nav.getPage().locator("#billing-buttons-container > button").click();
+        page.locator("#billing-buttons-container > button").click();
 
     }
 }

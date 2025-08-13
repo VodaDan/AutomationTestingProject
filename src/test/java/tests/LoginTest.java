@@ -1,8 +1,16 @@
 package tests;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.Page;
 import models.User;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.MethodSource;
 import pages.LoginPage;
+import pages.Navigation;
 
 import java.util.regex.Pattern;
 
@@ -14,7 +22,7 @@ public class LoginTest extends BaseTest {
 
     @Override
     @BeforeEach
-    public void startSession () {
+    public void startSession() {
         super.startSession();
         loginPage = new LoginPage(page);
     }
@@ -47,6 +55,17 @@ public class LoginTest extends BaseTest {
         loginPage.fillPassword(testUser.getPassword());
         loginPage.submitLogin();
         assertThat(page).hasTitle(Pattern.compile(".*login.*", Pattern.CASE_INSENSITIVE));
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/test-data/loginData.csv", numLinesToSkip = 1)
+    @DisplayName("Login Submission test")
+    public void loginParameterizedTest(String username, String password) {
+        nav.navigateToLoginPage();
+        loginPage.fillEmail(username.toString());
+        loginPage.fillPassword(password.toString());
+        loginPage.submitLogin();
+        assertThat(page).hasTitle("Customer Login");
     }
 
 }

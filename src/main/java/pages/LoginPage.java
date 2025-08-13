@@ -16,7 +16,6 @@ public class LoginPage {
         emailSelector = "#email";
         passwordSelector = "#pass";
         loginButtonSelector = "#send2";
-
     }
 
 

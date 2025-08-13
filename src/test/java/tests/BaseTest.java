@@ -13,12 +13,11 @@ public class BaseTest {
     private  Playwright playwright;
     private Browser browser;
     protected Page page;
-    protected LoginPage loginPage;
     protected Navigation nav;
 
     @BeforeEach
     public void startSession () {
-        this.nav = new Navigation(0,true);
+        this.nav = new Navigation(500,false);
         this.playwright = nav.getPlaywright();
         this.browser = nav.getBrowser();
         this.page = nav.getPage();
